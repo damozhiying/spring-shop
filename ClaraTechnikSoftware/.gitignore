@@ -1,0 +1,18 @@
+#For IDE IntelliJ IDEA:
+/.idea/
+/*.iml
+
+#For IDE Eclipse:
+/.project
+/.classpath
+/.settings/
+
+#For database Derby:
+/derby-db/
+/derby.log
+
+#For Maven generated files:
+/target/
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*

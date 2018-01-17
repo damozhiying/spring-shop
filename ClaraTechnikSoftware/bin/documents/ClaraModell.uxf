@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>11</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>825</x>
+      <y>902</y>
+      <w>407</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;service&gt;&gt;
+ArticleService
+--
++ createArticle(name, description, price): Article
++ deleteArticle(articleId: Long)
++ deleteAll()
++ findArticle(articleId: Long): Article
++ findAllArticles(): List&lt;Article&gt;
++ editArticle(articleId, name, description, price): Article
++ patchArticle(articleId, name, description, price): Article</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>418</x>
+      <y>209</y>
+      <w>561</w>
+      <h>396</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;entity&gt;&gt;
+User
+--
+- username: String
+- password: String
+- honorifics: String
+- name: String
+- firstname: String
+- address: Address
+- bankaccounts: List&lt;Bankaccount&gt;
+--
++ searchArticles(keyword: String): List&lt;Article&gt;
++ createNewShoppingCart(): Order
++ viewShoppingCart(): List&lt;OrderItem&gt;
++ viewOrder(orderId: Long): List&lt;OrderItem&gt;
++ viewAllOrders(): List&lt;Order&gt;
++ addToShoppingCart(orderId, articleId, articleAmount): OrderItem
++ removeFromShoppingCart(orderId, articleId, articleAmount)
++ cancelOrder(orderId: Long)
++ order(orderId: Long): Order
++ addBankaccount(iban: String, bic: String)
++ deleteBankaccount(bankaccountnumber: int)
++ deleteAllBankaccounts()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1056</x>
+      <y>363</y>
+      <w>176</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;value object&gt;&gt;
+Address
+--
+- postcode: Integer
+- city: String
+- street: String
+- housenumber: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1056</x>
+      <y>517</y>
+      <w>176</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;value object&gt;&gt;
+Bankaccount
+--
+- iban: String
+- bic: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>605</x>
+      <y>770</y>
+      <w>176</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;entity&gt;&gt;
+OrderItem
+--
+- articleAmount: Integer
+- /itemPrice: Amount</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>968</x>
+      <y>363</y>
+      <w>110</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;20.0;80.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>550</x>
+      <y>594</y>
+      <w>88</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+befüllt v</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>583</x>
+      <y>704</y>
+      <w>231</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=*
+enthält &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;190.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>682</x>
+      <y>715</y>
+      <w>33</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>858</x>
+      <y>803</y>
+      <w>33</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>594</y>
+      <w>99</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+gibt auf v</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>968</x>
+      <y>517</y>
+      <w>110</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;20.0;80.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>418</x>
+      <y>704</y>
+      <w>176</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;entity&gt;&gt;
+Order
+--
+- date: Timestamp
+- /totalPrice: Amount
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>792</x>
+      <y>704</y>
+      <w>154</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;entity&gt;&gt;
+Article
+--
+- name: String
+- description: String
+- price: Amount</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>990</x>
+      <y>704</y>
+      <w>242</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;value object&gt;&gt;
+Amount
+--
++ Amount(euros: int, cents: int)
++ Amount(euros: double)
++ plus(other: Amount): Amount
++ minus(other: Amount): Amount
++ times(factor: double): Amount
++ toDouble(): double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>935</x>
+      <y>704</y>
+      <w>77</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>50.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>418</x>
+      <y>0</y>
+      <w>561</w>
+      <h>165</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;service&gt;&gt;
+UserService
+--
++ createUser(honorifics, name, firstname, username, password, address): User
++ deleteUser(id: Long)
++ findUser(id: Long): User
++ findAllUsers(): List&lt;User&gt;
++ editUser(userId, honorifics, name, firstname, username, password): User
++ patchUser(userId, honorifics, name, firstname, username, password): User
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>682</x>
+      <y>154</y>
+      <w>33</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>418</x>
+      <y>902</y>
+      <w>363</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;service&gt;&gt;
+OrderService
+--
++ save(order: Order): Order
++ saveOrderItem(orderItem: OrderItem): OrderItem
++ findAllOrders(): List&lt;Order&gt;
++ findAllOrdersOfUser(user: User): List&lt;Order&gt;
++ findOrder(orderId: Long): Order
++ delete(orderId: Long)
++ deleteOrderItem(orderItem: OrderItem)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>484</x>
+      <y>781</y>
+      <w>33</w>
+      <h>143</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+</diagram>

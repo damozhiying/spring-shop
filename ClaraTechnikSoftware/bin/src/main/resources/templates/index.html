@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html xlmns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />		
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<style>
+			.w3-sidebar a {font-family: "Roboto", sans-serif}
+			body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+			table {
+			  border-spacing: 0.5rem;
+			}
+			td {
+			  padding: 0.5rem;
+			}
+			tbody tr:hover {
+			  background: rgba(50,50,50,0.3);
+			}
+			#same td:nth-child(1){
+    				width: 200px;
+			}
+			#same td:nth-child(2){
+   				width: 350px;
+			}
+			#same td:nth-child(3){
+   				width: 80px;
+			}
+			#same td:nth-child(4){
+			    width: 80px;
+			}
+			
+			#allOrderstable>table td:nth-child(1){
+				width:40px;
+			}
+			#allOrderstable>table td:nth-child(2){
+				width:140px;
+			}
+			#allOrderstable>table td:nth-child(3){
+				width:200px;
+			}
+			#allOrderstable>table td:nth-child(4){
+				width:120px;
+			}	
+			#allOrderstable>table td:nth-child(5){
+				width:80px;
+			}
+			button:hover{
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0;
+			}
+			#shoppingcartbtn, #logoutbtn{
+				float: right;
+			}			
+		</style>
+       	<title>C.L.A.R.A.</title>
+    </head>
+    <body>
+        <header>
+            <h1>C.L.A.R.A.</h1>
+            <button id="articlesearchbtn" type="button">Artikelsuche</button>
+            <button id="allOrdersbtn" type="button">Alle Bestellungen</button>
+            <button id="profilebtn" type="button">Profil</button>
+            <button id="bankbtn" type="button">Konten</button>
+            <button id="logoutbtn" type="button">Logout</button>
+            <button id="shoppingcartbtn" type="button">Einkaufswagen</button>
+        </header>
+        <!-- Einloggen -->
+    		<div class="container" id="clara-login">
+      		<h3>Login</h3>
+      		<div class="input-field">
+        			<input id="username" type="text" /> <label for="username">Username</label>
+      		</div>
+
+      		<div class="input-field">
+        			<input id="password" type="password" /> <label for="password">Password</label>
+      		</div>
+      		<br /> <button id="login">Login</button>
+
+    		</div>
+    		
+    		<!-- Registrieren -->
+    		<div class="container" id="register">
+			<h3>Registriere dich jetzt</h3>
+			<form>
+			<div class="input-field">
+				<input id="registerUsername" type="text" /> <label for="username">Username</label>
+			</div>
+	
+			<div class="input-field">
+				<input id="registerPassword" type="password" /> <label for="password">Password</label>
+			</div>
+	
+			<div class="input-field">
+				<input id="registerHonorifics" type="text" /> <label for="registerHonorifics">Anrede</label>
+			</div>
+	
+			<div class="input-field">
+				<input id="registerFirstname" type="text" /> <label for="vorname">Vorname</label>
+			</div>
+	
+			<div class="input-field">
+				<input id="registerLastname" type="text" /> <label for="nachname">Nachname</label>
+			</div>
+	
+			<div class="input-field">
+				<input id="registerStreet" type="text" /> <label for="strasse">Strasse</label>
+			</div>
+	
+			<div class="input-field">
+				<input id="registerHousenumber" type="text" /> <label for="hausnummer">Hausnummer</label>
+			</div>
+	
+			<div class="input-field">
+				<input id="registerPostcode" type="text" /> <label for="postleitzahl">Postleitzahl</label>
+			</div>
+	
+			<div class="input-field">
+				<input id="registerCity" type="text" /> <label for="stadt">Stadt</label>
+			</div>
+			</form>
+			<br /> <button id="registerbtn">Registrieren</button>
+
+    		</div>
+    		
+    		<!-- Artikelliste -->
+    		<div class="container" id="articles">
+      		<h3>Articles</h3>
+      		<div class="input-field">
+        			<input id="article" type="text" /> <label for="article">Article</label>
+      		</div>
+      		<br /> <button id="search">Suchen</button>
+      		
+			<div id="articletable">
+
+			</div>
+    		</div>
+    		
+    		<!-- Alle Bestellungen -->
+    		<div class="container" id="allOrders">
+      		<h3>Alle Bestellungen</h3>      		
+			<div id="allOrderstable">
+
+			</div>
+    		</div>
+    		
+    		<!-- Profil bearbeiten -->
+    		<div class="container" id="update">
+			<h3>Profil bearbeiten</h3>
+			<div class="input-field">
+				<input id="updateUsername" type="text" /> <label for="updateUsername">Username</label>
+			</div>
+	
+			<div class="input-field">
+				<input id="updatePassword" type="password" /> <label for="updatePassword">Password</label>
+			</div>
+			
+			<div class="input-field">
+				<input id="updateHonorifics" type="text" /> <label for="updateHonorifics">Anrede</label>
+			</div>
+	
+			<div class="input-field">
+				<input id="updateFirstname" type="text" /> <label for="updateFirstname">Vorname</label>
+			</div>
+	
+			<div class="input-field">
+				<input id="updateLastname" type="text" /> <label for="updateLastname">Nachname</label>
+			</div>
+	
+			<div class="input-field">
+				<input id="updateStreet" type="text" /> <label for="updateStreet">Strasse</label>
+			</div>
+	
+			<div class="input-field">
+				<input id="updateHousenumber" type="text" /> <label for="updateHousenumber">Hausnummer</label>
+			</div>
+	
+			<div class="input-field">
+				<input id="updatePostcode" type="text" /> <label for="updatePostcode">Postleitzahl</label>
+			</div>
+	
+			<div class="input-field">
+				<input id="updateCity" type="text" /> <label for="updateCity">Stadt</label>
+			</div>
+	
+			<br /> <button id="updatebtn">Änderungen speichern</button>
+
+    		</div>
+    		
+    		<!-- Warenkorb -->
+    		<div class="container" id="shoppingcart">
+      		<h3>Warenkorb</h3>      		
+			<div id="shoppingcarttable">
+
+			</div>
+			<br /> <button id="orderbtn">Bestellen</button>
+    		</div>
+    		
+    		<!-- Konten -->
+    		<div class="container" id="bankaccounts">
+      		<h3>Konten</h3>      		
+			<div id="bankaccountstable">
+
+			</div>
+			<div class="input-field">
+				<input id="IBAN" type="text" /> <label for="IBAN">IBAN</label>
+			</div>
+
+			<div class="input-field">
+				<input id="BIC" type="text" /> <label for="BIC">BIC</label>
+			</div>
+			<br /> <button id="addbank">Bankkonto hinzufügen</button>
+    		</div>
+  
+    <script type="text/javascript" src="../public/js/app.js" th:src="@{js/app.js}"></script>
+    <script type="text/javascript" src="../public/js/view.js" th:src="@{js/view.js}"></script>
+    <script type="text/javascript" src="../public/js/render.js" th:src="@{js/render.js}"></script>
+    </body>
+</html>
